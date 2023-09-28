@@ -2121,7 +2121,7 @@ CXChildVisitResult ClangIndexer::handleCursor(const CXCursor &cursor, CXCursorKi
         CXComment comment = clang_Cursor_getParsedComment(cursor);
         if (clang_Comment_getKind(comment) != CXComment_Null) {
             c.briefComment = RTags::eatString(clang_Cursor_getBriefCommentText(cursor));
-            c.xmlComment = RTags::eatString(clang_FullComment_getAsXML(comment));
+            //c.xmlComment = RTags::eatString(clang_FullComment_getAsXML(comment));
         }
 
         for (auto it = cursors.begin(); it != cursors.end() && (c.briefComment.empty() || c.xmlComment.empty()); ++it) {
